@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/now-ui-kit.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,600,700,800,900&display=swap" rel="stylesheet">
+    <title>Show My Video Link</title>
+</head>
+<body>
+<div class="heading">
+    <center><h1 class="display-5 title">Show My Video Link</h1></center>
+        <div id="video-container">
+        <center><div id="player"></div></center>
+    </div>
+</div>
+    <center><input type="text" id="video-link" placeholder="Enter video link here"></center>
+</div>
+    <center><button id="submit-button">Submit</button>
+<div class="footer">
+    <div class="bot-footer">
+        <br/>
+        <div class="meek">Website developped by <a href="https://github.com/MeekOnGithub"> Zaid Eladib</a></div>
+    </div>
+</div>
+
+</body>
+  <script>
+    const videoLinkInput = document.getElementById('video-link');
+    const submitButton = document.getElementById('submit-button');
+
+    submitButton.addEventListener('click', () => {
+
+      const videoLink = videoLinkInput.value;
+      const video = document.createElement('video');
+      video.src = videoLink;
+
+      video.width = 680;
+      video.height = 240;
+
+      video.controls = true;
+
+      const player = document.getElementById('player');
+      while (player.firstChild) {
+        player.removeChild(player.firstChild);
+      }
+
+      player.appendChild(video);
+    });
+  </script>
+</html>
